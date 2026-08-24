@@ -99,10 +99,11 @@ export default function Home() {
               <div className="flex flex-col gap-8 sm:flex-row lg:flex-col">
                 <GlassCard className="grid aspect-square w-40 place-items-center rounded-[2rem] sm:w-44">
                   <Image
-                    src="/federico-avatar.svg"
-                    alt="Illustrated portrait of Federico Schipani"
+                    src="/propic.png"
+                    alt="Portrait of Federico Schipani"
                     width={160}
                     height={160}
+                    sizes="(min-width: 640px) 176px, 160px"
                     className="size-full rounded-[2rem]"
                   />
                 </GlassCard>
@@ -189,6 +190,14 @@ export default function Home() {
                   >
                     Send an email
                   </a>
+                  <a
+                    href={socials[4].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                  >
+                    Car Shooters
+                  </a>
                 </div>
               </GlassCard>
             </Reveal>
@@ -210,13 +219,23 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <a
-                  href="/federico-schipani-cv.pdf"
-                  download
-                  className="glass w-fit rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
-                >
-                  CV download coming soon
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={socials[4].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass w-fit rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                  >
+                    Visit Car Shooters
+                  </a>
+                  <a
+                    href="/CV.pdf"
+                    download
+                    className="glass w-fit rounded-full px-6 py-3 text-sm font-semibold transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                  >
+                    Download CV
+                  </a>
+                </div>
               </GlassCard>
             </Reveal>
           </div>

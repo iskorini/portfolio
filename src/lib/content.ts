@@ -156,4 +156,5 @@ export const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/federicoschipani/" },
   { label: "Instagram", href: "https://www.instagram.com/federico.schipani" },
   { label: "Email", href: "mailto:federicoschipani@outlook.com" },
+  { label: "Car Shooters", href: "https://www.car-shooters.com/" },
 ];

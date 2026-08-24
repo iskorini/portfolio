@@ -7,7 +7,7 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
-        <ul className="flex items-center gap-5">
+        <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {socials.map((social) => (
             <li key={social.label}>
               <a
