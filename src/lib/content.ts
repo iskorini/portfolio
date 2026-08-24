@@ -51,6 +51,7 @@ export type WorkExperience = {
   company: string;
   employmentType?: string;
   period: string;
+  description?: string[];
   roles: CareerRole[];
 };
 
@@ -59,6 +60,11 @@ export const workExperience: WorkExperience[] = [
     company: "Data Reply IT",
     employmentType: "Full-time",
     period: "Sep 2022 - Present",
+    description: [
+      "At Data Reply, I develop and lead cloud-native AI and data science solutions across AWS, GCP, and Azure. My work includes computer vision pipelines for image segmentation, a Generative AI chatbot on Azure using OpenAI models, and the migration of an AI-based insurance pricing assistant from GCP to AWS, as well as a monitoring platform from on-premises infrastructure to Google Cloud.",
+      "I have developed machine learning models to estimate repair costs and processing timelines for insurance claims, supported by feature engineering and KPI analysis. I also build and operationalize MLOps pipelines with Kubeflow on GCP and SageMaker Pipelines on AWS, enabling scalable training, experimentation, and automated model deployment.",
+      "I built and managed Confluent Cloud infrastructure with Terraform, covering clusters, networking, RBAC, security, and environment automation.",
+    ],
     roles: [
       { period: "Mar 2025 - Present", title: "Senior Data Scientist" },
       {
@@ -77,6 +83,9 @@ export const workExperience: WorkExperience[] = [
     company: "Polaris Engineering srl",
     employmentType: "Full-time",
     period: "May 2020 - Sep 2022",
+    description: [
+      "At Polaris Engineering, I designed and deployed ML and deep learning models for audio, image, and tabular data analysis. I researched AI applications for Industry 4.0 and artistic generative projects, and delivered proof-of-concepts as web applications and chatbots using Google Cloud and Dialogflow.",
+    ],
     roles: [
       { period: "May 2020 - Sep 2022", title: "Machine Learning Engineer" },
     ],
@@ -85,16 +94,14 @@ export const workExperience: WorkExperience[] = [
     company: "University of Florence",
     employmentType: "Contract",
     period: "Nov 2017 - Jun 2019",
+    description: [
+      "At the University of Florence, I led classroom exercise sessions and provided one-to-one support to first-year Computer Science students. I also supported prospective students through orientation services and open days.",
+    ],
     roles: [
       {
         period: "Nov 2017 - Jun 2019",
         title: "University Tutor",
         location: "Florence, Italy",
-        responsibilities: [
-          "Led classroom exercise sessions.",
-          "Provided one-to-one support for first-year Computer Science students.",
-          "Supported prospective students through orientation services and open days.",
-        ],
       },
     ],
   },

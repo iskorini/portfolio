@@ -42,6 +42,13 @@ export function CareerTimeline() {
                       {experience.period}
                     </p>
                   </div>
+                  {experience.description ? (
+                    <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+                      {experience.description.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  ) : null}
                   <ol className="mt-6 space-y-6 border-l border-black/10 pl-5 dark:border-white/10">
                     {experience.roles.map((role) => (
                       <li
