@@ -3,7 +3,7 @@ export const siteConfig = {
   initials: "FS",
   role: "Data Scientist",
   location: "Florence, Italy",
-  availability: "Data Scientist at Data Reply IT",
+  availability: "Open to new opportunities",
 } as const;
 
 export type NavItem = { id: string; label: string };
