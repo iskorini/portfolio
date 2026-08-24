@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrated portrait of Federico Schipani</title>
+  <desc id="desc">A cartoon portrait of Federico in sunglasses at the wheel of a car.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#93dcf6"/>
+      <stop offset="1" stop-color="#d6eff7"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#273f71"/>
+      <stop offset="1" stop-color="#132545"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#sky)"/>
+  <circle cx="133" cy="29" r="18" fill="#659d50"/>
+  <circle cx="146" cy="36" r="16" fill="#7eb35e"/>
+  <path d="M0 38C24 28 41 28 67 42v36H0z" fill="#1c2735"/>
+  <path d="M7 42c20-8 38-6 58 6" fill="none" stroke="#405163" stroke-width="5" stroke-linecap="round"/>
+  <path d="M42 160c2-40 16-65 42-66 24-1 48 26 55 66z" fill="url(#shirt)"/>
+  <path d="M63 103c5 10 19 16 30 13l5-19-25-9z" fill="#d3976f"/>
+  <path d="M58 78c0-25 13-39 31-39 19 0 32 14 30 38-2 22-15 36-31 36-17 0-30-15-30-35z" fill="#dcaa82"/>
+  <path d="M58 70c-1-24 14-39 33-39 17 0 29 11 31 31-10-7-22-9-34-7-11 2-19 7-30 15z" fill="#3a2b28"/>
+  <path d="M56 65c7-16 25-23 44-19 10 2 17 7 22 14" fill="none" stroke="#2b2020" stroke-width="6" stroke-linecap="round"/>
+  <path d="M62 74h20l3 11H65zM94 73h20l-3 12H92zM85 79h8" fill="#202a35" stroke="#131a21" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M67 76h14v6H68zM96 75h14v6H96z" fill="#94c8d7" opacity=".72"/>
+  <path d="M79 95c5 3 11 3 16 0" fill="none" stroke="#a85e57" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M105 115c14 3 27 11 38 24" fill="none" stroke="#dcaa82" stroke-width="10" stroke-linecap="round"/>
+  <path d="M77 119c15 2 26 8 36 20" fill="none" stroke="#dcaa82" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="132" cy="132" r="32" fill="none" stroke="#18212d" stroke-width="11"/>
+  <circle cx="132" cy="132" r="20" fill="none" stroke="#445262" stroke-width="3"/>
+  <path d="M111 111l14 14M151 111l-14 14" stroke="#18212d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M6 142c29-11 44-4 58 18H0z" fill="#334558" opacity=".74"/>
+</svg>

@@ -1,26 +1,232 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette — warm light */
+  --background: oklch(0.98 0.006 84);
+  --foreground: oklch(0.26 0.03 280);
+  --muted: oklch(0.51 0.03 275);
+  --surface: oklch(1 0 0);
+  --accent: oklch(0.54 0.2 287);
+  --accent-contrast: oklch(0.99 0.004 280);
+
+  /* Brand gradient (solid stops for monogram / badges) */
+  --brand-a: oklch(0.57 0.2 285);
+  --brand-b: oklch(0.6 0.19 320);
+
+  /* Liquid glass material */
+  --glass-bg: oklch(1 0 0 / 58%);
+  --glass-border: oklch(1 0 0 / 65%);
+  --glass-edge: oklch(0.29 0.04 280 / 14%);
+  --glass-highlight: oklch(1 0 0 / 95%);
+  --glass-blur: 20px;
+
+  /* Ambient orbs */
+  --orb-indigo: oklch(0.62 0.19 285 / 0.5);
+  --orb-violet: oklch(0.66 0.18 310 / 0.45);
+  --orb-warm: oklch(0.83 0.12 55 / 0.38);
+
+  /* Elevation */
+  --elevation-1:
+    0 1px 2px oklch(0.26 0.03 280 / 0.05), 0 16px 40px -16px oklch(0.26 0.03 280 / 0.2);
+  --elevation-2:
+    0 2px 4px oklch(0.26 0.03 280 / 0.06), 0 28px 56px -20px oklch(0.26 0.03 280 / 0.28);
+
+  /* Optical navigation lens */
+  --nav-blur: 0.6px;
+  --nav-tint: oklch(1 0 0 / 2.5%);
+  --nav-edge-highlight: oklch(1 0 0 / 72%);
+  --nav-edge-bounce: oklch(0.46 0.1 285 / 28%);
+  --nav-active-lens-strength: 1;
+  --nav-active-tint: oklch(1 0 0 / 8%);
+  --nav-active-specular: oklch(1 0 0 / 22%);
+  --nav-active-edge-light: oklch(1 0 0 / 95%);
+  --nav-active-edge-bounce: oklch(0.58 0.12 290 / 42%);
+}
+
+.dark {
+  --background: oklch(0.165 0.024 285);
+  --foreground: oklch(0.94 0.012 285);
+  --muted: oklch(0.72 0.024 285);
+  --surface: oklch(0.215 0.028 285);
+  --accent: oklch(0.75 0.15 287);
+  --accent-contrast: oklch(0.17 0.03 285);
+
+  --brand-a: oklch(0.72 0.16 285);
+  --brand-b: oklch(0.74 0.15 320);
+
+  --glass-bg: oklch(0.24 0.028 285 / 48%);
+  --glass-border: oklch(0.94 0.012 285 / 10%);
+  --glass-edge: oklch(0 0 0 / 32%);
+  --glass-highlight: oklch(0.94 0.012 285 / 16%);
+
+  --orb-indigo: oklch(0.5 0.15 285 / 0.34);
+  --orb-violet: oklch(0.52 0.16 315 / 0.3);
+  --orb-warm: oklch(0.55 0.11 340 / 0.2);
+
+  --elevation-1:
+    0 1px 2px oklch(0 0 0 / 0.3), 0 16px 40px -16px oklch(0 0 0 / 0.5);
+  --elevation-2:
+    0 2px 4px oklch(0 0 0 / 0.35), 0 28px 56px -20px oklch(0 0 0 / 0.6);
+
+  --nav-tint: oklch(1 0 0 / 2%);
+  --nav-edge-highlight: oklch(1 0 0 / 42%);
+  --nav-edge-bounce: oklch(0.72 0.12 300 / 24%);
+  --nav-active-tint: oklch(1 0 0 / 7%);
+  --nav-active-specular: oklch(1 0 0 / 12%);
+  --nav-active-edge-light: oklch(1 0 0 / 70%);
+  --nav-active-edge-bounce: oklch(0.72 0.12 300 / 36%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-brand-a: var(--brand-a);
+  --color-brand-b: var(--brand-b);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --shadow-glass: var(--elevation-1);
+  --shadow-glass-lg: var(--elevation-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* --- base --- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 26%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* --- liquid glass materials --- */
+
+@utility glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 -1px 0 var(--glass-edge),
+    var(--elevation-1);
+}
+
+@utility glass-nav {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--nav-tint);
+  -webkit-backdrop-filter: blur(var(--nav-blur)) saturate(145%);
+  backdrop-filter: blur(var(--nav-blur)) saturate(145%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.25px;
+    background: linear-gradient(
+      135deg,
+      var(--nav-edge-highlight),
+      transparent 35%,
+      transparent 65%,
+      var(--nav-edge-bounce)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+}
+
+@supports (backdrop-filter: url(#liquid-lens-edge)) or
+  (-webkit-backdrop-filter: url(#liquid-lens-edge)) {
+  .glass-nav {
+    -webkit-backdrop-filter:
+      url(#liquid-lens-edge) blur(var(--nav-blur)) saturate(145%) contrast(106%);
+    backdrop-filter:
+      url(#liquid-lens-edge) blur(var(--nav-blur)) saturate(145%) contrast(106%);
+  }
+}
+
+.liquid-nav-link {
+  position: relative;
+  isolation: isolate;
+}
+
+.liquid-nav-link-active::before,
+.liquid-nav-link-active::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.liquid-nav-link-active::before {
+  z-index: -1;
+  inset: -1px;
+  background:
+    radial-gradient(130% 100% at 50% 0%, var(--nav-active-specular), transparent 66%),
+    radial-gradient(
+      120% 60% at 50% 115%,
+      oklch(1 0 0 / calc(15% * var(--nav-active-lens-strength))),
+      transparent 70%
+    ),
+    var(--nav-active-tint);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / calc(88% * var(--nav-active-lens-strength))),
+    inset 0 -1px 0 oklch(0.46 0.1 285 / calc(32% * var(--nav-active-lens-strength))),
+    0 1px 2px oklch(0.2 0.03 285 / 8%),
+    0 6px 16px -8px oklch(0.2 0.03 285 / 14%);
+}
+
+.liquid-nav-link-active::after {
+  inset: -1px;
+  padding: 1.25px;
+  background: linear-gradient(
+    135deg,
+    var(--nav-active-edge-light),
+    oklch(1 0 0 / calc(20% * var(--nav-active-lens-strength))) 45%,
+    transparent 62%,
+    var(--nav-active-edge-bounce)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: -1;
 }
